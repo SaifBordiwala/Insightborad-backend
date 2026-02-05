@@ -1,4 +1,4 @@
-// Env is loaded in server.ts (env/local.env or env/production.env)
+// Env is loaded in server.ts (.env)
 
 export type MeetingTaskPriority = "low" | "medium" | "high";
 
