@@ -9,13 +9,13 @@ const envFile =
 
 config({ path: envFile, quiet: true });
 
-if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL is not defined");
-}
+// During build/generation, DATABASE_URL might not be available
+// Prisma generate doesn't need a real connection, so we use a dummy URL if needed
+const databaseUrl = process.env.DATABASE_URL || "postgresql://dummy:dummy@localhost:5432/dummy";
 
 export default defineConfig({
   schema: "prisma/schema.prisma",
   datasource: {
-    url: process.env.DATABASE_URL,
+    url: databaseUrl,
   },
 });
