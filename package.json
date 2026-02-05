@@ -4,8 +4,10 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "prisma generate",
+    "build": "tsc",
     "dev": "cross-env DOTENV_CONFIG_PATH=./env/local.env ts-node src/server.ts",
     "dev:watch": "cross-env DOTENV_CONFIG_PATH=./env/local.env nodemon --exec ts-node src/server.ts",
+    "prod": "cross-env DOTENV_CONFIG_PATH=./env/production.env node dist/server.js",
     "prisma:local": "dotenv -e env/local.env -- prisma migrate dev",
     "prisma:prod": "dotenv -e env/production.env -- prisma migrate deploy"
   },
