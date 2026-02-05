@@ -7,7 +7,7 @@
     "build": "tsc",
     "dev": "ts-node src/server.ts",
     "dev:watch": "nodemon --exec ts-node src/server.ts",
-    "prod": "node dist/server.js",
+    "start": "node dist/server.js",
     "prisma:local": "dotenv -e .env -- prisma migrate dev",
     "prisma:prod": "dotenv -e .env -- prisma migrate deploy"
   },
